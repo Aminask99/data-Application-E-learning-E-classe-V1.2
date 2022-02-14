@@ -8,16 +8,17 @@
         <!-- form -->
         <div class="mb-3 row-sm ">
           <label class="form-label ">Email</label>
-          <input class="form-control text-muted shadow-none" value="Entrer your addres ">
+          <input type="email" class="form-control text-muted shadow-none" value=" ">
         </div>
         <div class="mb-3 row-sm ">
           <label class="form-label ">Password</label>
-          <input class="form-control text-muted shadow-none " value="Entrer your Password  ">
+          <input type="password" class="form-control text-muted shadow-none " value=" entrer your password">
         </div>
-        <!-- buton -->
         
-        <button class="btn btn-info text-white fs-6 >  w-100">SIGN IN<a href="" ></a> </button>
-        <!-- link a href -->
+         <button  onclick="window.location.href = 'dash.php';"  class="btn btn-info text-white fs-6   w-100" type="button">
+         SIGN IN 
+        </button>
+     
         <div class="mt-3 text-center href">
           <p class="text-muted m-3  "> Forger your password?<a href="dash.php" class="text-info ">Reset password </a>.
           </p>

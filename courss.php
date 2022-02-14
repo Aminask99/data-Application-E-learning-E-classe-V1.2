@@ -2,22 +2,16 @@
 
  <?php
 
- $table=[
- $array=['Title'=> 'php','Link'=>'amina','Price'=>123],
- $array=['Title'=> 'php','Link'=>'amina','Price'=>123],
- $array=['Title'=> 'php','Link'=>'amina','Price'=>123],
+ $courss=[
+//  $array=['Title'=> 'php','Description_'=>'amina','Price'=>123],
+//  $array=['Title'=> 'php','Description_'=>'amina','Price'=>123],
+//  $array=['Title'=> 'php','Description_'=>'amina','Price'=>123],
 
    ];
 ?>
 
    <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "e_classe_db";
-// Create connection
-$conn =mysqli_connect($servername, $username, $password,$dbname);
-
+require'cnx.php';
 ?>
 
 <!DOCTYPE html>
@@ -49,15 +43,15 @@ $conn =mysqli_connect($servername, $username, $password,$dbname);
     .side-bar {
       background-color: #fff;
       height: 800px;
-     
+      width:200px;
     }
 
     .image {
       width: 70px;
     }
     .Logout{
-      transform: translateY(70Px);
-      margin-left: 30px;
+      transform: translateY(88Px);
+      margin-left: 26px;
     }
     
     @media screen and (min-width: 576px) {
@@ -99,7 +93,7 @@ $conn =mysqli_connect($servername, $username, $password,$dbname);
         <div
           class=" d-flex main-container  flex-sm-row  flex-column  container bg-light  justify-content-between py-3">
           <div>
-            <p class="fw-bold "> Student List </p>
+            <p class="fw-bold ">Courss </p>
           </div>
           <div>
             <i class="far fa-sort text-info me-3 h5 "></i>
@@ -119,14 +113,14 @@ $conn =mysqli_connect($servername, $username, $password,$dbname);
     <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX PHP XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
        <?php
        //  xxxxxx th
-      foreach($table as $key => $val){
+      foreach($courss as $key => $val){
         
       }
       echo" <tr  class='align-middle border-5 border-light text-secondary 5'>
      
       
       <th> Title</th>
-      <th>Link</th>
+      <th>Description_</th>
       <th>Price </th>
       
     </tr>";
@@ -136,8 +130,9 @@ $conn =mysqli_connect($servername, $username, $password,$dbname);
           <!-- xxxx td -->
           <?php
       $req="SELECT * FROM courss ";
-      $res = $conn -> query($req);
+      $res = $connect -> query($req);
       if($res -> num_rows > 0){
+         $data = [];
         
         while( $x = $res -> fetch_assoc()){
           $id=$x['id'];
@@ -145,7 +140,7 @@ $conn =mysqli_connect($servername, $username, $password,$dbname);
      
        
        <td class='py-3'> ". $x['Title'] . "</td>
-       <td class='py-3'>{$x['Link']}</td>
+       <td class='py-3'>{$x['Description_']}</td>
        <td class='py-3'>{$x['Price']}</td>" ; ?>
        <td class="py-3">
        <a href="update_cours.php?id=<?php echo $x['id']; ?>" type="button" class="btn btn-sm">

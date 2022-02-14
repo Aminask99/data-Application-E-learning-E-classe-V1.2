@@ -13,7 +13,6 @@
 </head>
 <style>
   body {
-
     background: linear-gradient(69.66deg, #00C1FE 19.39%, #FAFFC1 96.69%);
     width: 100%;
     height: 100px;
@@ -22,12 +21,12 @@
     width: 100%;
     transform: translateY(50px);
  }
- .contain {
+.contain {
 
-  border-radius: 20px;
+    border-radius: 20px;
     height: 580px;
     width: ;
-}
+ }
 
   .href{
     font-size: 10px;
@@ -42,60 +41,45 @@
 
 <body>
 <div class=" pt-5 cont row-sm">
-    <!-- h1 -->
-    <!-- <div class="container rounde w-25   col-8 col-md-6 col-lg-4 pt-7  contain row-sm w-50 "> -->
+    
     <?php
 require'cnx.php';
+// echo"connected";
 
-$id=$_GET['id'];
-$req = "SELECT * FROM listt_student where id ='$id' ";
-$res = $connect -> query($req) ;
-$row = $res -> fetch_assoc();
-if(isset($_POST['update'])){
-$Name= $_POST['Name'];
-$Email= $_POST['Email'];
-$phone= $_POST['phone'];
-$Enroll_Number= $_POST['Enroll_Number'];
-$DateOfAdmission= $_POST['DateOfAdmission'];
-$req = " UPDATE listt_student  SET  Name = '$Name', Email = '$Email', phone ='$phone', Enroll_Number ='$Enroll_Number', DateOfAdmission = '$DateOfAdmission' where id = '$id'   ";
-$connect  -> query($req);
-header('location: listt_student.php');
-}
+
+// echo "yes";
+require'insert-Student.php' ;
 ?>
+
 <main class="container-fluid mt-0 mt-auto ">
   <div class=" pb-5 cont row-sm">
-    <div class="container rounde w-25  p-3 bg-dark col-8 col-md-6 col-lg-4  contain row-sm w-50 ">
+    <div class="container rounde w-25  p-3 bg-dark col-8 col-md-6 col-lg-4   contain row-sm w-50 ">
            
-            <form   method="POST"  class="formlair ps-3 pe-3 ">
+      <form  action="" method="POST"  class="formlair ps-3 pe-3 ">
         <h3 class=" fw-bold  chadow m-3  text-light d-flex justify-content-center "> Saisissez les informations de l'apprenant </h3>
-       
-        <!-- paragraph -->
-        <!-- <div class=" text-center paragraph">
-          <p class="paragraph fs-6 text-muted parag  ">Enter your credentials to access your account</p>
-        </div> -->
         <!-- form -->
         <div class="mb-3 row-sm ">
           <label class="form-label text-light ">Name</label>
-          <input type="text" class="form-control text-muted shadow-none" name="Name" value="<?php echo $row['Name']; ?>">
+          <input type="text" class="form-control text-muted shadow-none" name="Name"value=" ">
         </div>
         <div class="mb-3 row-sm ">
           <label class="form-label text-light ">Email</label>
-          <input type="email" class="form-control text-muted shadow-none " name="Email"  value="<?php echo $row['Email']; ?>">
+          <input type="email" class="form-control text-muted shadow-none " name="Email" value=" ">
         </div>
         <div class="mb-3 row-sm ">
           <label class="form-label text-light">phone</label>
-          <input type="tel" class="form-control text-muted shadow-none " name="phone"  value="<?php echo $row['phone']; ?>">
+          <input type="tel" class="form-control text-muted shadow-none " name="phone" value=" ">
         </div>
         <div class="mb-3 row-sm ">
           <label class="form-label text-light ">Enroll_Number</label>
-          <input type="number" class="form-control text-muted shadow-none " name="Enroll_Number" value="<?php echo $row['Enroll_Number']; ?>">
+          <input type="number" class="form-control text-muted shadow-none " name="Enroll_Number"value=" ">
         </div>
         <div class="mb-3 row-sm ">
           <label class="form-label text-light">DateOfAdmission</label>
-          <input type="date" class="form-control text-muted shadow-none "name="DateOfAdmission"  value="<?php echo $row['DateOfAdmission']; ?>">
+          <input type="date" class="form-control text-muted shadow-none "name="DateOfAdmission" value=" ">
         </div>
         
-        <button class="btn btn-info text-white w-100" name="update">update</button>
+        <button class="btn btn-info text-white w-100" name="add">update</button>
      
         
 
@@ -107,8 +91,6 @@ header('location: listt_student.php');
 
 </div>
  
-
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>

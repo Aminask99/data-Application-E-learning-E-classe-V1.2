@@ -14,7 +14,7 @@
 <style>
   body {
 
-    
+    background: linear-gradient(69.66deg, #00C1FE 19.39%, #FAFFC1 96.69%);
     width: 100%;
     height: 100px;
   }
@@ -44,12 +44,7 @@
     <!-- h1 -->
     <!-- <div class="container rounde w-25   col-8 col-md-6 col-lg-4 pt-7  contain row-sm w-50 "> -->
     <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "e_classe_db";
-// Create connection
-$connect =mysqli_connect($servername, $username, $password,$dbname);
+require'cnx.php';
 echo"connected";
 
 $id=$_GET['id'];
@@ -59,45 +54,46 @@ $res = $connect -> query($req) ;
 $row = $res -> fetch_assoc();
 if(isset($_POST['update'])){
 $Title= $_POST['Title'];
-$Link= $_POST['Link'];
-$Price= $_POST['Prince'];
+$Description_= $_POST['Description_'];
+$Price= $_POST['Price'];
 
-$req = " UPDATE courss  SET Title = '$Title', Link = '$Link', Price ='$Price' where id = '$id'  ";
+$req = " UPDATE courss  SET Title = '$Title', Description_ = '$Description_', Price ='$Price' where id = '$id'  ";
 $connect  -> query($req);
 header('location: courss.php');
 }
 ?>
-
 <main class="container-fluid mt-0 mt-auto ">
-        <div class=" cont row d-flex ">
-            <div class=" d-flex justify-content-center align-item-center">
-                <form action="" method="POST" class=" w-50">
-
-                <h1 class="text-center text-secondary mt-3">Courss Students :</h1>
-                
-                <div class="mb-2">
-                      <label class="form-label text-secondary">Title</label>
-                      <input type="text" class="form-control" name="Title" value="<?php echo $row['Title']; ?>">
-                    </div>
-                    <div class="mb-2">
-                      <label class="form-label text-secondary">Link</label>
-                      <input type="text" class="form-control" name="Link" value="<?php echo $row['Link']; ?>">
-                    </div>
-                    <div class="mb-2">
-                      <label class="form-label text-secondary">Price</label>
-                      <input type="text" class="form-control" name="Price" value="<?php echo $row['Price']; ?>">
-                    </div>
-                    
-                         
-                    <button class="btn btn-info text-white w-100" name="update">update</button>
-              
-                  </form>
-                  </div>
+  <div class=" pb-5 cont row-sm">
+      <div class="container rounde w-25  p-3 bg-dark col-8 col-md-6 col-lg-4  contain row-sm w-50 ">
+           
+     <form   method="POST"  class="formlair ps-3 pe-3 ">
+        <h3 class=" fw-bold  chadow m-3  text-light d-flex justify-content-center "> Courss Students </h3>
+      
+        <div class="mb-3 row-sm ">
+          <label class="form-label text-light ">Title</label>
+          <input type="text" class="form-control text-muted shadow-none" name="Title" value="<?php echo $row['Title']; ?>">
+        </div> 
+        <div class="mb-3 row-sm ">
+          <label class="form-label text-light">Description_</label>
+          <input type="TEXT" class="form-control text-muted shadow-none " name="Description_"  value="<?php echo $row['Description_']; ?>">
         </div>
-    </main>
+        <div class="mb-3 row-sm ">
+          <label class="form-label text-light ">Price</label>
+          <input type="number" class="form-control text-muted shadow-none " name="Price"  value="<?php echo $row['Price']; ?>">
+        </div>
+        
+        <button class="btn btn-info text-white w-100" name="update">update</button>
+     
+     </form>
+               
+      </div>
+    </div>
+</main>
+
+
 
 </div>
-  </div>
+ 
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

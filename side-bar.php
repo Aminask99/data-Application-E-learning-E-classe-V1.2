@@ -5,7 +5,7 @@
 
           <div class="d-inline-flex flex-column  justify-content-center row">
 
-            <img class="logoo rounded-circle  d-none d-sm-block mt-4" src="youcode.png " alt="logo">
+            <img class="logoo rounded-circle  d-none d-sm-block mt-4" src="InShot_20210224_213135139.jpg " alt="logo">
 
             <div class="paragraph ">
               <p class="fs-6 fw-bold mb-1 text-center text-dark   d-none d-sm-block ">Admin name</p>

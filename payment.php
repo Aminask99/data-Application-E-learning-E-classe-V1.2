@@ -2,21 +2,16 @@
 <?php
 
 
-$table=[
- $array= [ 'Name' =>'Amina','payment_Sshedule' => 'first', '	Bill_Number' => '00012223','Amount_Paidr' => 'DHS 100,000','	Balance_amount'=> 'DHS 500,000','Date'=>'05-Jan,2022'],
- $array= [ 'Name' =>'Amina','payment_Sshedule' => 'first', '	Bill_Number' => '00012223','Amount_Paidr' => 'DHS 100,000','	Balance_amount'=> 'DHS 500,000','Date'=>'05-Jan,2022'],
- $array= [ 'Name' =>'Amina','payment_Sshedule' => 'first', '	Bill_Number' => '00012223','Amount_Paidr' => 'DHS 100,000','	Balance_amount'=> 'DHS 500,000','Date'=>'05-Jan,2022'],
+$payment=[
+//  $array= [ 'Name' =>'Amina','payment_Sshedule' => 'first', '	Bill_Number' => '00012223','Amount_Paidr' => 'DHS 100,000','	Balance_amount'=> 'DHS 500,000','Date'=>'05-Jan,2022'],
+//  $array= [ 'Name' =>'Amina','payment_Sshedule' => 'first', '	Bill_Number' => '00012223','Amount_Paidr' => 'DHS 100,000','	Balance_amount'=> 'DHS 500,000','Date'=>'05-Jan,2022'],
+//  $array= [ 'Name' =>'Amina','payment_Sshedule' => 'first', '	Bill_Number' => '00012223','Amount_Paidr' => 'DHS 100,000','	Balance_amount'=> 'DHS 500,000','Date'=>'05-Jan,2022'],
 
    ];
   
 ?>
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "e_classe_db";
-// Create connection
-$conn =mysqli_connect($servername, $username, $password,$dbname);
+require'cnx.php';
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +42,8 @@ $conn =mysqli_connect($servername, $username, $password,$dbname);
 
     .side-bar {
       background-color: #fff;
-      height: 800px;
+      height: 820px;
+      width:200px;
      
     }
 
@@ -55,8 +51,8 @@ $conn =mysqli_connect($servername, $username, $password,$dbname);
       width: 70px;
     }
     .Logout{
-      transform: translateY(70Px);
-      margin-left: 30px;
+      transform: translateY(88Px);
+      margin-left: 26px;
     }
     
     @media screen and (min-width: 576px) {
@@ -85,12 +81,12 @@ $conn =mysqli_connect($servername, $username, $password,$dbname);
 
 
   <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX saidbar XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
-  <main class="container-fluid  position-sticky top-0 start-0">
-    <div class="row flex-nowrap">
+<main class="container-fluid  position-sticky top-0 start-0">
+  <div class="row flex-nowrap">
 
-    <?php include'side-bar.php';   ?>
+          <?php include'side-bar.php';   ?>
 
-      <div class="col py-3">
+   <div class="col py-3">
 
         <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX NAVBAR XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 
@@ -98,11 +94,11 @@ $conn =mysqli_connect($servername, $username, $password,$dbname);
         <div
           class=" d-flex main-container  flex-sm-row  flex-column  container bg-light  justify-content-between py-3">
           <div>
-            <p class="fw-bold "> Student List </p>
+            <p class="fw-bold "> payment List </p>
           </div>
           <div>
             <i class="far fa-sort text-info me-3 h5 "></i>
-            <a href="Formpayment.php"> <button type="button" class="btn btn-info    text-light">ADD payment</button></a>
+            <a href="Formpayment.php"> <button type="button" class="btn btn-info text-light">ADD payment</button></a>
           </div>
         
         </div>
@@ -111,14 +107,14 @@ $conn =mysqli_connect($servername, $username, $password,$dbname);
             <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX TABL XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
             <div class="bg-light navbar-light">
 
-              <div class="container-fluid table-responsive">
-              <table class="table" >
+            <div class="container-fluid table-responsive  ">
+    <table class="table table-striped" >
        
-       <thead>
-    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX PHP XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+        <thead>
+      <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX PHP XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
        <?php
        //  xxxxxx th
-      foreach($table as $key => $val){
+      foreach($payment as $key => $val){
         
       }
       echo" <tr  class='align-middle border-5 border-light text-secondary 5'>
@@ -131,16 +127,14 @@ $conn =mysqli_connect($servername, $username, $password,$dbname);
       <th>Balance_amount </th>
       <th>Date_ </th>
       
-
-    
-    </tr>";
+     </tr>";
       
        ?>
            </thead>
-          <!-- xxxx td -->
+       
           <?php
       $req="SELECT * FROM payment ";
-      $res = $conn -> query($req);
+      $res = $connect-> query($req);
       if($res -> num_rows > 0){
         $data = [];
         
@@ -161,28 +155,24 @@ $conn =mysqli_connect($servername, $username, $password,$dbname);
             <td class='py-3'>{$user['Amount_Paid']}</td>
             <td class='py-3'>{$user['Balance_amount']}</td>
             <td class='py-3'>{$user['Date_']}</td> ;
+            <td class='text-info'>
+            <a href='vie.php?id ?>' type='button' class='btn  btn-sm '>
+            <i class='far fa-eye pe-3 text-info'></i>
+            <a/>
+        </td>
             </tr>";
-          } 
+            
+          }  
         }
+        
       ?>
-       <!-- <td class="py-3">
-       <a href="update_Student.php?id=" type="button" class="btn btn-sm">
-         <i class="fal fa-pen pe-2 text-info"></i>
-       </a>
-       </td>
-       <td>
-       <a href='delete.php?id=' type='button' class='btn  btn-sm '>
-         <i class='fal fa-trash text-info'></i>
-       <a/>
-     </td> -->
-
-  
- </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
+      
+    </table>
+       </div>
+    </div>
+   </div>
+  </div>
+</main>
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>

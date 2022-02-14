@@ -13,8 +13,7 @@
 </head>
 <style>
   body {
-
-    
+    background: linear-gradient(69.66deg, #00C1FE 19.39%, #FAFFC1 96.69%);
     width: 100%;
     height: 100px;
   }
@@ -41,57 +40,44 @@
 
 <body>
 <div class=" pt-5 cont row-sm">
-    <!-- h1 -->
-    <!-- <div class="container rounde w-25   col-8 col-md-6 col-lg-4 pt-7  contain row-sm w-50 "> -->
+    
     <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "e_classe_db";
-//Create connection
-$connect =mysqli_connect($servername, $username, $password,$dbname);
+require'cnx.php';
 // echo"connected";
 
-if(isset($_POST['add'])){
-
-    $Title= $_POST['Title'];
-    $Link= $_POST['Link'];
-    $Price= $_POST['Prince'];
-    
-    $query="INSERT INTO courss(Title,link,Price) values(' $Title','$Link','$Price') ";
- mysqli_query($connect,$query);
- header('location:courss.php');
-}
+require'insert-courss.php';
 ?>
-
 <main class="container-fluid mt-0 mt-auto ">
-        <div class=" cont row d-flex ">
-            <div class=" d-flex justify-content-center align-item-center">
-                <form action="" method="POST" class=" w-50">
-
-                <h1 class="text-center text-secondary mt-3">Courss Students :</h1>
-                     <div class="mb-2">
-                      <label  class="form-label text-secondary">Title</label>
-                      <input type="texte" class="form-control" name="Title" placeholder="">
-                    </div>
-                     <div class="mb-2">
-                      <label class="form-label text-secondary">Link</label>
-                      <input type="text" class="form-control" name="Link"placeholder="">
-                    </div>
-                    <div class="mb-2">
-                    <label class="form-label text-secondary">Prince</label>
-                      <input type="type="text" class="form-control" name="Price"placeholder="">
-                    </div>
-                        
-                    <button class="btn btn-info text-white w-100" name="add">save</button>
-              
-                  </form>
-                  </div>
+  <div class=" pb-5 cont row-sm">
+    <div class="container rounde w-25  p-3 bg-dark col-8 col-md-6 col-lg-4   contain row-sm w-50 ">
+           
+      <form  action="" method="POST"  class="formlair ps-3 pe-3 ">
+        <h3 class=" fw-bold  chadow m-3  text-light d-flex justify-content-center "> Courss </h3>
+       
+        <div class="mb-3 row-sm ">
+          <label class="form-label text-light ">Title</label>
+          <input type="text" class="form-control text-muted shadow-none" name="Title"value=" ">
         </div>
-    </main>
+        <div class="mb-3 row-sm ">
+          <label class="form-label text-light ">Description_</label>
+          <input type="text" class="form-control text-muted shadow-none " name="Description_" value=" ">
+        </div>
+        <div class="mb-3 row-sm ">
+          <label class="form-label text-light">Price</label>
+          <input type="number" class="form-control text-muted shadow-none " name="Price" value=" ">
+        </div>
+        
+        <button class="btn btn-info text-white w-100" name="add">save</button>
+      
+      </form>
+               
+     </div>
+        </div>
+ </main>
+
 
 </div>
-  </div>
+ 
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

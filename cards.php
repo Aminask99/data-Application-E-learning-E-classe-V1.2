@@ -5,7 +5,7 @@
               <span>Students</span>
             </div>
             <div class="cardnbr-Students">
-              <span class="h5 fw-bold" id="nbr">234</span>
+              <span class="h5 fw-bold" id="nbr" ><?php echo $student; ?></span>
             </div>
           </div>
 
@@ -16,7 +16,7 @@
               <span>Course</span>
             </div>
             <div class="cardnbr-course">
-              <span class="h5 fw-bold" id="nbr">13</span>
+              <span class="h5 fw-bold" id="nbr"><?php echo $courss;?></span>
             </div>
           </div>
 
@@ -26,7 +26,7 @@
               <span>Payments</span>
             </div>
             <div class="cardpayments">
-              <span class="h5 fw-bold" id="nbr">DHS 556,000</span>
+              <span class="h5 fw-bold" id="nbr">DHS <?php echo $payment;?></span>
             </div>
           </div>
 
